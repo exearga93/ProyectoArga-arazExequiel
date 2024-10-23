@@ -63,3 +63,28 @@ document.write(`<p> 4.2 Clientes Insatisfechos: ${promedioInsatisfecho}%</p>`);
 
 console.log(` Clientes Insatisfechos: ${promedioInsatisfecho}%`)
 
+//La calificacion que mas se repetio(moda)
+const frecuencias = {};
+
+for (let i = 0; i < respuestas.length; i++) {
+    
+    const calificacion = respuestas[i];
+        frecuencias[calificacion] = (frecuencias[calificacion] || 0) +calificacion
+}
+
+// Calificación que se repitio más veces (moda)
+
+let moda = respuestas[0];
+let maxFrecuencia = frecuencias[moda];
+
+for (const calificacion in frecuencias) {
+    if (frecuencias[calificacion] > maxFrecuencia) {
+        maxFrecuencia = frecuencias[calificacion];
+        moda = calificacion;
+    }
+}
+
+console.log(` La calificación que más se repite (moda): ${moda}`);
+
+document.write(`<p> 5. La calificación que se repitio más veces es: ${moda} </p>`)
+
