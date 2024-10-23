@@ -16,7 +16,7 @@ const promedio = suma / respuestas.length;
 
 document.write(`<p>1. El promedio de satisfacción es: ${promedio}</p>`);
 
-console.log(`El promedio de satisfacción es: ${promedio}`);
+console.log(` El promedio de satisfacción es: ${promedio}`);
 
 //Cantidad de clientes satisfechos segun la encuesta (respuesta >= a 7)
 
@@ -44,3 +44,22 @@ for(let j=0; j<respuestas.length;j++){
 document.write(`<p> 3. La cantidad de clientes insatisfechos es: ${clienteInsatisfecho} </p>`)
 
 console.log(` La cantidad de clientes insatisfechos es: ${clienteInsatisfecho}`)
+
+//Porcentajes de clientes que estan satisfechos e insatisfechos
+
+//Clientes satisfechos
+
+let promedioSatisfecho = 100*clienteSatisfecho/respuestas.length;
+
+document.write(`<p> 4.1 Clientes Satisfechos: ${promedioSatisfecho}%</p>`);
+
+console.log(` Clientes Satisfechos: ${promedioSatisfecho}%`)
+
+//Clientes Insatisfechos
+
+let promedioInsatisfecho = 100*clienteInsatisfecho/respuestas.length;
+
+document.write(`<p> 4.2 Clientes Insatisfechos: ${promedioInsatisfecho}%</p>`);
+
+console.log(` Clientes Insatisfechos: ${promedioInsatisfecho}%`)
+
