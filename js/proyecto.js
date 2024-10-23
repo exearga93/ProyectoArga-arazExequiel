@@ -5,7 +5,7 @@ Se realiza una encuesta en un restaurante sobre la satisfacción de los clientes
 10 significa muy satisfecho
 Las respuestas estan cargadas en el siguiente array: [8,5,10,7,6,8,9,10,7,4,6,3,7,8,6,5,4,2,9,10] */
 
-let respuestas=[8,5,10,7,6,8,9,10,7,4,6,3,7,8,6,5,4,2,9,10];
+const respuestas=[8,5,10,7,6,8,9,10,7,4,6,3,7,8,6,5,4,2,9,10];
 
 let suma=0;
 
@@ -63,28 +63,37 @@ document.write(`<p> 4.2 Clientes Insatisfechos: ${promedioInsatisfecho}%</p>`);
 
 console.log(` Clientes Insatisfechos: ${promedioInsatisfecho}%`)
 
-//La calificacion que mas se repetio(moda)
-const frecuencias = {};
+//Las calificaciones que se repitieron mas veces (moda)
+let maxFrec = 0;
+const modas = [];
+
+// Encontrar la frecuencia máxima
 
 for (let i = 0; i < respuestas.length; i++) {
-    
-    const calificacion = respuestas[i];
-        frecuencias[calificacion] = (frecuencias[calificacion] || 0) +calificacion
-}
-
-// Calificación que se repitio más veces (moda)
-
-let moda = respuestas[0];
-let maxFrecuencia = frecuencias[moda];
-
-for (const calificacion in frecuencias) {
-    if (frecuencias[calificacion] > maxFrecuencia) {
-        maxFrecuencia = frecuencias[calificacion];
-        moda = calificacion;
+    let frecuencia = 0;
+    for (let j = 0; j < respuestas.length; j++) {
+        if (respuestas[i] === respuestas[j]) {
+            frecuencia++;
+        }
+    }
+    if (frecuencia > maxFrec) {
+        maxFrec = frecuencia;
     }
 }
 
-console.log(` La calificación que más se repite (moda): ${moda}`);
+// Encontrar todos los valores con la frecuencia máxima
+for (let i = 0; i < respuestas.length; i++) {
+    let frecuencia = 0;
+    for (let j = 0; j < respuestas.length; j++) {
+        if (respuestas[i] === respuestas[j]) {
+            frecuencia++;
+        }
+    }
+    if (frecuencia === maxFrec && !modas.includes(respuestas[i])) {
+        modas.push(respuestas[i]);
+    }
+}
+document.write(`<p> 5. Las calificaciones que se repitieron más veces (modas) son: ${modas} </p>`)
 
-document.write(`<p> 5. La calificación que se repitio más veces es: ${moda} </p>`)
+console.log(` Los valores que más se repiten son: ${modas.join(' , ')}`);
 
