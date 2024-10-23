@@ -41,7 +41,7 @@ for(let j=0; j<respuestas.length;j++){
 
 }
 
-document.write(`<p> 3. La cantidad de clientes insatisfechos es: ${clienteInsatisfecho} </p>`)
+document.write(`<p> 3. La cantidad de clientes insatisfechos es (<=4): ${clienteInsatisfecho} </p>`)
 
 console.log(` La cantidad de clientes insatisfechos es: ${clienteInsatisfecho}`)
 
